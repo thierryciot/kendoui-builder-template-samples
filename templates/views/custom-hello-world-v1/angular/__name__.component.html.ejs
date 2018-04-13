@@ -1,0 +1,12 @@
+<%#
+    This renders the view at runtime.
+    We can access public members from viewName.base.component.ts.ejs and from public file (viewName.component.ts)
+
+    Note: This is an EJS comment - it won't show in the html output - See http://ejs.co/#docs for details
+%>
+<h2>{{titleY}}</h2>
+
+<div>
+    <%# greeting property can contain html so we cannot use interpolation -> {{greeting}} %>
+    <span [innerHTML]="greeting"></span>&nbsp;World V1
+</div>

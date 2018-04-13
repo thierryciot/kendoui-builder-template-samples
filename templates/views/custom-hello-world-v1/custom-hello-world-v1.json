@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "custom-hello-world-v1",
+  "type": "object",
+  "name": "custom-hello-world-v1",
+  "description": "Hello World widget scheme",
+  "category": "Views",
+  "properties": {
+    "titleX": {
+      "type": "string",
+      "title": "View Title",
+      "description": "The title of the view shown in the header section",
+      "default": "Hello",
+      "order": 1
+    },
+    "greeting": {
+      "type": "string",
+      "title": "Greeting",
+      "description": "The string prepended to world",
+      "default": "Salutations",
+      "order": 2
+    }
+  },
+  "required": [
+  ],
+  "dependencies": {
+    "dataSource": [
+      "dataProvider"
+    ]
+  }
+}

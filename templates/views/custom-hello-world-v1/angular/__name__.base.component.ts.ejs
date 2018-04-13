@@ -1,0 +1,55 @@
+import { Component, Injector, ViewChild, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+
+import { State } from '@progress/kendo-data-query';
+
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
+
+import { KbGridComponent } from '../../../shared/components/grid/grid.component';
+import { ModelDataResult } from '../../../core/data/model-data-result';
+
+import { DataService } from '../../../core/data/data.service';
+import { DataServiceFactory } from '../../../core/data/data-service-factory';
+
+@Component({
+    <% if (useTemplateUrl) { %>templateUrl: './<%- dasherizedViewName %>.component.html'<% } else { %>template: require('./<%- dasherizedViewName %>.component.html')<% } %>,
+    styleUrls: ['./<%- dasherizedViewName %>.component.css']
+})
+export class <%- classifiedViewName %>BaseComponent implements OnInit, AfterViewInit, OnDestroy {
+
+<%#
+    This is where we create the TypeScript properties containing values from the designer. The
+    values from the designer, also called metadata properties are accessed from the view object
+    using EJS syntax.
+    We will access the TypeScript properties from the _name_.base.component.html.ejs file.
+
+    Note: this is an EJS comment.  It will not appear in the generated ts code file.
+    See http://ejs.co/#docs for details
+%>
+    // Define the view title.
+    public titleY: string = "<%- view.titleX.replace(/"/g, '\\"'); %>";
+
+    // Define the greeting message.
+    public greeting: string = "<%- view.greeting.replace(/"/g, '\\"'); %>";
+
+<%#
+    $config will contain all view configuration properties, including the additional properties
+    defined in config.json.ejs.
+%>
+    public $config: any = <%- viewConfig %>;
+
+    constructor(public injector: Injector) {
+    }
+
+    public ngOnInit(): void {
+        // Uncomment the debugger statement to inspect, at runtime, the properties defined above.
+        //debugger;
+    }
+
+    public ngAfterViewInit(): void {
+    }
+
+    public ngOnDestroy(): void {
+    }
+}

@@ -1,0 +1,14 @@
+<%#
+    This renders the view at runtime.
+    The items defined in options.json.ejs are available from the model.
+    The model is added to the variable vm.$model (view model) in the controller (See controller.js.ejs).
+
+    In this template we can use AngularJS expressions, for example, {{vm.$model.title}} to access the title property.
+
+    Note: This is an EJS comment - it won't show in the html output - See http://ejs.co/#docs for details
+%>
+<h2>{{vm.$model.titleY}}</h2>
+
+<div>
+    <span ng-bind-html="vm.$model.greeting"></span>&nbsp;World V1
+</div>

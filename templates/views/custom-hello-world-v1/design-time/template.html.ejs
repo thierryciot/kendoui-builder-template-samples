@@ -1,0 +1,15 @@
+<%#
+    This renders the view when working within KUIB (designer).
+    We can use the value of view properties by using the names defined in custom-hello-world-v1.json
+    For example, titleX is defined as a string property.
+
+    titleX is html escaped
+    greeting is output unescaped so that we can use html tags in it.
+
+    Note: This is an EJS comment - it won't show in the html output - See http://ejs.co/#docs for details
+%>
+<h2><%= titleX %></h2>
+
+<div class="col-lg-12">
+    <%- greeting %> World V1
+</div>
