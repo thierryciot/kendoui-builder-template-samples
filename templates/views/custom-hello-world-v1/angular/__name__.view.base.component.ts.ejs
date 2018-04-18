@@ -13,10 +13,10 @@ import { DataService } from '../../../core/data/data.service';
 import { DataServiceFactory } from '../../../core/data/data-service-factory';
 
 @Component({
-    <% if (useTemplateUrl) { %>templateUrl: './<%- dasherizedViewName %>.component.html'<% } else { %>template: require('./<%- dasherizedViewName %>.component.html')<% } %>,
-    styleUrls: ['./<%- dasherizedViewName %>.component.css']
+    <% if (useTemplateUrl) { %>templateUrl: './<%- dasherizedViewName %>.view.component.html'<% } else { %>template: require('./<%- dasherizedViewName %>.view.component.html')<% } %>,
+    styleUrls: ['./<%- dasherizedViewName %>.view.component.css']
 })
-export class <%- classifiedViewName %>BaseComponent implements OnInit, AfterViewInit, OnDestroy {
+export class <%- classifiedViewName %>ViewBaseComponent implements OnInit, AfterViewInit, OnDestroy {
 
 <%#
     This is where we create the TypeScript properties containing values from the designer. The
