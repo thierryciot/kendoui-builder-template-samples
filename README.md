@@ -2,6 +2,6 @@
 Samples for learning how to write Kendo UI Builder (KUIB) templates (custom views and custom components)
 
 See these blogs for details:
-https://www.progress.com/blogs/introduction-to-kendo-ui-builder-templates
-https://www.progress.com/blogs/behind-the-scenes-of-kendo-ui-builder-templates
-
+ * [Introduction to KendoUI Builder Templates](https://goo.gl/feRMEd)
+ * [Understanding what goes on behind the scene](https://goo.gl/cDHZoS)
+ * [Event Handling in Custom Views](tbd)
