@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "custom-hello-world-v2",
+  "type": "object",
+  "name": "custom-hello-world-v2",
+  "description": "Hello World widget scheme",
+  "category": "Views",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "View Title",
+      "description": "The title of the view shown in the header section",
+      "default": "Hello",
+      "order": 1
+    },
+    "greeting": {
+      "type": "string",
+      "title": "Greeting",
+      "description": "The string prepended to world",
+      "default": "Salutations",
+      "order": 2
+    },
+    "events": {
+      "type": "object",
+      "title": "Event",
+      "description": "Specifies all available events for the hello world div",
+      "order": 3,
+      "properties": {
+        "onClick": {
+          "type": "string",
+          "title": "Clicked",
+          "description": "This event fires when hello world is clicked",
+          "default": "onClick",
+          "order": 1
+        }
+      }
+    }
+  },
+  "required": [
+  ],
+  "dependencies": {
+    "dataSource": [
+      "dataProvider"
+    ]
+  }
+}

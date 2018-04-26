@@ -1,0 +1,46 @@
+import { Component, Injector, ViewChild, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+
+import { State } from '@progress/kendo-data-query';
+
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
+
+import { KbGridComponent } from '../../../shared/components/grid/grid.component';
+import { ModelDataResult } from '../../../core/data/model-data-result';
+
+import { DataService } from '../../../core/data/data.service';
+import { DataServiceFactory } from '../../../core/data/data-service-factory';
+
+@Component({
+    <% if (useTemplateUrl) { %>templateUrl: './<%- dasherizedViewName %>.view.component.html'<% } else { %>template: require('./<%- dasherizedViewName %>.view.component.html')<% } %>,
+    styleUrls: ['./<%- dasherizedViewName %>.view.component.css']
+})
+export class <%- classifiedViewName %>ViewBaseComponent implements OnInit, AfterViewInit, OnDestroy {
+
+    // Here we need to create the properties we will access from the template
+    // We access metadata properties from the view object
+    public title: string = "<%- view.title %>";
+    public greeting: string = "<%- view.greeting %>";
+
+    public $config: any = <%- viewConfig %>;
+
+    constructor(public injector: Injector) {
+    }
+
+    public ngOnInit(): void {
+    }
+
+    public ngAfterViewInit(): void {
+    }
+
+    public ngOnDestroy(): void {
+    }
+
+<%# Provide a default implementation for onClick event if defined in metadata %>
+<% if (view.events.onClick) { %>
+    public <%- view.events.onClick %>(e): void {
+        alert(`<%- classifiedViewName %>: in default implementation for <%- view.events.onClick %> - You should override this function in the public component class.`);
+    }
+<% } %>
+}

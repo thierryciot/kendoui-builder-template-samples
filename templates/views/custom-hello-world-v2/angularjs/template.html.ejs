@@ -1,0 +1,26 @@
+<%#
+    This renders the view at runtime.
+    The items defined in options.json.ejs are available from the model.
+    The model is added to the variable vm.$model (view model) in the controller (See controller.js.ejs).
+
+    In this template we can use AngularJS expressions, for example, {{vm.$model.title}} to access the title property.
+
+    Note: This is an EJS comment - it won't show in the html output - See http://ejs.co/#docs for details
+%>
+<h2 ng-bind-html="vm.$model.title"></h2>
+
+<div style="border: 2px solid blue; margin: 1rem; padding: 1rem; cursor: pointer;"
+    <% if (events.onClick) { %>
+        ng-click="vm.<%- events.onClick %>($event)"
+    <% } %>
+>
+    {{vm.$model.greeting}}&nbsp;World V2
+    <br/>
+    <br/>
+    Note:
+<% if (events.onClick) { %>
+    You can click anywhere in this div to invoke the onClick handler.
+<% } else { %>
+    You have not defined any click handler in KUIB designer.
+<% } %>
+</div>

@@ -1,0 +1,24 @@
+<%#
+    This renders the view at runtime.
+    The items defined in options.json.ejs are available from the model.
+    We can access public members from viewName.base.component.ts.ejs and from public which is viewName.component.ts
+
+    Note: This is an EJS comment - it won't show in the html output - See http://ejs.co/#docs for details
+%>
+<h2>{{title}}</h2>
+
+<div style="border: 2px solid blue; margin: 1rem; padding: 1rem;"
+    <% if (view.events.onClick) { %>
+        (click)="<%- view.events.onClick %>($event)"
+    <% } %>
+>
+    {{greeting}}&nbsp;World V2
+    <br/>
+    <br/>
+    Note:
+<% if (view.events.onClick) { %>
+    You can click anywhere in this div to invoke the onClick handler.
+<% } else { %>
+    You have not defined any click handler in KUIB designer.
+<% } %>
+</div>
