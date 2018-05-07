@@ -1,0 +1,30 @@
+<%#
+    This renders the view at runtime.
+    The items defined in options.json.ejs are available from the model.
+    We can access public members from viewName.base.component.ts.ejs and from public which is viewName.component.ts
+
+    Note: This is an EJS comment - it won't show in the html output - See http://ejs.co/#docs for details
+%>
+<h2>{{title}}</h2>
+
+<div>
+    <%# greeting property can contain html so we cannot use interpolation -> {{greeting}} %>
+    <span [innerHTML]="greeting"></span>&nbsp;World
+</div>
+<div style="margin: 1rem; padding: 1rem; border: 2px solid goldenrod;">
+    Properties Added to Model:
+    <ul style="padding-left: 2rem;">
+        <li>
+            <%# This is an example of a property that is defined in config.json.ejs %>
+            Version: {{$config.version}}
+        </li>
+        <li>
+            <%# This is an example of a property that is defined in index.js, function augmentModel %>
+            Template Generated on {{generatedAt}}
+        </li>
+    </ul>
+</div>
+
+<h3>Html Property from Html Editor</h3>
+
+<section style="padding-top: 1rem; padding-left: 2rem;" [innerHTML]="html"></section>
