@@ -1,0 +1,136 @@
+{
+    "authentication": {
+        "authenticationType": "none",
+        "settings": {}
+    },
+    "authenticationModel": "Anonymous",
+    "children": [
+        {
+            "actions": {
+                "create": {
+                    "dataType": "json",
+                    "method": "POST",
+                    "url": "buildings/"
+                },
+                "destroy": {
+                    "dataType": "json",
+                    "method": "DELETE",
+                    "url": "buildings/:id"
+                },
+                "read": {
+                    "dataType": "json",
+                    "method": "GET",
+                    "url": "buildings/"
+                },
+                "update": {
+                    "dataType": "json",
+                    "method": "PUT",
+                    "url": "buildings/:id"
+                }
+            },
+            "clientSideProcessing": true,
+            "fields": [
+                {
+                    "editorType": "numeric-input",
+                    "fieldType": "number",
+                    "label": "id",
+                    "name": "id"
+                },
+                {
+                    "editorType": "text-input",
+                    "fieldType": "string",
+                    "label": "name",
+                    "name": "name"
+                }
+            ],
+            "name": "Buildings",
+            "schema": {
+                "idField": "id"
+            },
+            "schemaVersion": "1.0",
+            "type": "rest-data-source",
+            "uniqueID": "da194822-0d3c-48ca-9fbb-f43d901c2b1f"
+        },
+        {
+            "actions": {
+                "create": {
+                    "dataType": "json",
+                    "method": "POST",
+                    "url": "devices/"
+                },
+                "destroy": {
+                    "dataType": "json",
+                    "method": "DELETE",
+                    "url": "devices/:id"
+                },
+                "read": {
+                    "dataType": "json",
+                    "method": "GET",
+                    "url": "devices/"
+                },
+                "update": {
+                    "dataType": "json",
+                    "method": "PUT",
+                    "url": "devices/:id"
+                }
+            },
+            "clientSideProcessing": true,
+            "fields": [
+                {
+                    "editorType": "numeric-input",
+                    "fieldType": "number",
+                    "label": "id",
+                    "name": "id"
+                },
+                {
+                    "editorType": "text-input",
+                    "fieldType": "string",
+                    "label": "Room",
+                    "name": "room"
+                },
+                {
+                    "editorType": "numeric-input",
+                    "fieldType": "number",
+                    "label": "Set Temperature",
+                    "name": "setTemp"
+                },
+                {
+                    "editorType": "numeric-input",
+                    "fieldType": "number",
+                    "label": "Current Temperature",
+                    "name": "currentTemp"
+                },
+                {
+                    "editorType": "numeric-input",
+                    "fieldType": "number",
+                    "label": "Humidity",
+                    "name": "hum"
+                },
+                {
+                    "editorType": "numeric-input",
+                    "fieldType": "number",
+                    "label": "CO2 Level",
+                    "name": "co2"
+                },
+                {
+                    "editorType": "numeric-input",
+                    "fieldType": "number",
+                    "label": "VOC",
+                    "name": "voc"
+                }
+            ],
+            "name": "Devices",
+            "schema": {
+                "idField": "id"
+            },
+            "schemaVersion": "1.0",
+            "type": "rest-data-source",
+            "uniqueID": "da194822-0d3c-48ca-9fbb-f43d901c2b1f"
+        }
+    ],
+    "name": "IoT",
+    "schemaVersion": "1.0",
+    "serviceUri": "http://localhost:3004/",
+    "type": "rest-data-provider",
+    "uniqueID": "0084408c-8cdf-4157-b3b7-a5a4ab222106"
+}
