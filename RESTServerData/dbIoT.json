@@ -1,0 +1,161 @@
+{
+  "devices": [
+    {
+      "id": 1,
+      "room": "Schrödinger",
+      "currentTemp": 21,
+      "setTemp": 20,
+      "hum": 61,
+      "co2": 201,
+      "voc": 1
+    },
+    {
+      "id": 2,
+      "room": "Galileo",
+      "currentTemp": 22,
+      "setTemp": 20,
+      "hum": 62,
+      "co2": 202,
+      "voc": 2
+    },
+    {
+      "id": 3,
+      "room": "Curie",
+      "currentTemp": 23,
+      "setTemp": 20,
+      "hum": 63,
+      "co2": 203,
+      "voc": 3
+    },
+    {
+      "id": 4,
+      "room": "Tesla",
+      "currentTemp": 24,
+      "setTemp": 20,
+      "hum": 64,
+      "co2": 204,
+      "voc": 4
+    },
+    {
+      "id": 5,
+      "room": "Pasteur",
+      "currentTemp": 25,
+      "setTemp": 20,
+      "hum": 65,
+      "co2": 205,
+      "voc": 5
+    },
+    {
+      "id": 6,
+      "room": "Kepler",
+      "currentTemp": 26,
+      "setTemp": 20,
+      "hum": 66,
+      "co2": 206,
+      "voc": 6
+    },
+    {
+      "id": 7,
+      "room": "Bohr",
+      "currentTemp": 27,
+      "setTemp": 20,
+      "hum": 67,
+      "co2": 207,
+      "voc": 7
+    },
+    {
+      "id": 8,
+      "room": "Planck",
+      "hum": 68,
+      "setTemp": -1,
+      "co2": 208,
+      "currentTemp": -2,
+      "voc": 8
+    },
+    {
+      "id": 9,
+      "room": "Mandelbrot",
+      "setTemp": 29,
+      "currentTemp": 25,
+      "hum": 69,
+      "co2": 209,
+      "voc": 9
+    },
+    {
+      "id": 1001,
+      "room": "Lavoisier",
+      "setTemp": 21,
+      "currentTemp": 1,
+      "hum": 1,
+      "co2": 1,
+      "voc": 1
+    },
+    {
+      "id": 1002,
+      "room": "Nobel",
+      "setTemp": 22,
+      "currentTemp": 2,
+      "hum": 2,
+      "co2": 2,
+      "voc": 2
+    },
+    {
+      "id": 1003,
+      "room": "Descartes",
+      "hum": 3,
+      "setTemp": 3,
+      "co2": 3,
+      "currentTemp": 3,
+      "voc": 3
+    },
+    {
+      "id": 1004,
+      "room": "Pascal",
+      "hum": 4,
+      "setTemp": 44,
+      "co2": 44,
+      "currentTemp": 44,
+      "voc": 44
+    },
+    {
+      "id": 1009,
+      "room": "Poincaré",
+      "hum": 19,
+      "Current_Temperature": 19,
+      "setTemp": 22,
+      "co2": 19,
+      "voc": 19
+    },
+    {
+      "id": 1010,
+      "room": "Lovelace",
+      "hum": 10,
+      "setTemp": 10,
+      "co2": 10,
+      "currentTemp": 10,
+      "voc": 10
+    }
+  ],
+  "buildings": [
+    {
+      "id": 1,
+      "name": "Bedford"
+    },
+    {
+      "id": 2,
+      "name": "test 2",
+      "newfield": "aaa",
+      "writtenBy": "Fetch Console PUT Request"
+    },
+    {
+      "id": 3,
+      "name": "test 3 upd",
+      "writtenBy": "Post at FF Console"
+    },
+    {
+      "id": 4,
+      "name": "test 4 +",
+      "writtenBy": "at editor"
+    }
+  ]
+}
