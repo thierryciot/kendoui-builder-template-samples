@@ -7,3 +7,4 @@ See these blogs for details:
  * [Event Handling in Custom Views](https://goo.gl/do9Ly5) and see [sample custom-hello-world-v2](https://github.com/thierryciot/kendoui-builder-template-samples/tree/master/templates/views/custom-hello-world-v2)
  * [Augmenting models](https://goo.gl/T4komk) and see sample [sample custom-hello-world-v3](https://github.com/thierryciot/kendoui-builder-template-samples/tree/master/templates/views/custom-hello-world-v3)
  * [Introduction to KendoUI Builder Custom Component](https://goo.gl/S7fdVx) and see sample [custom-hello-world-comp](https://github.com/thierryciot/kendoui-builder-template-samples/tree/master/templates/components/custom-hello-world-comp)
+ * [Custom Component from Angular Component]() and see sample [custom-hello-world-ang-comp](https://github.com/thierryciot/kendoui-builder-template-samples/tree/master/templates/components/custom-hello-world-ang-comp)

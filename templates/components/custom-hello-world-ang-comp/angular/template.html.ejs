@@ -1,0 +1,38 @@
+<%#
+<p>
+   To get this sample working you need to do the following:
+   <ul>
+   <li>
+      Put the angular component somewhere in the target application, for example create
+      customcomp directory under \app\src\app\shared and copy the source code there.
+   </li>
+   <li>add the following code to app\src\app\shared\shared.module.ts
+   <code>
+      import { HelloWorldComponent } from './customcomp/hello-world.component/hello-world.component';
+      config.exports.push(HelloWorldComponent);
+      config.declarations.push(HelloWorldComponent);
+      //const myDeclarationsArray = <any[]>config.declarations;
+      //myDeclarationsArray.push(HelloWorldComponent);
+
+// This does not work:
+// config.declarations.push(HelloWorldComponent);
+// getting:
+/*
+ERROR in src/app/shared/shared.module.ts(12,26): error TS2345: Argument of type 'typeof HelloWorldComponent' is not assi
+gnable to parameter of type 'typeof KbDataFormComponent | typeof KbGridComponent | typeof KbAutoCompleteComponent | type
+of KbN...'.
+  Type 'typeof HelloWorldComponent' is not assignable to type 'typeof KbUserDropDownComponent'.
+    Type 'HelloWorldComponent' is not assignable to type 'KbUserDropDownComponent'.
+      Property 'hasAuthProviders' is missing in type 'HelloWorldComponent'.
+ */
+   </code>
+   </li>
+   <li>
+      Uncomment the line at the bottom of this file to use the custom-hello-world tag.
+   </li>
+   </ul>
+</p>
+%>
+<!--
+-->
+<custom-hello-world greeting="{{$config.components.<%-id%>.greeting}}"></custom-hello-world>
