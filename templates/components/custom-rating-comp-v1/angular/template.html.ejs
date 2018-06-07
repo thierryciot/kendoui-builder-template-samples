@@ -1,0 +1,23 @@
+<%#
+<p>
+   To get this sample working you need to do the following:
+   <ul>
+   <li>
+      Put the angular component somewhere in the target application, for example create
+      customcomp directory under \app\src\app\shared and copy the source code there.
+   </li>
+   <li>add the following code to app\src\app\shared\shared.module.ts
+   <code>
+      import { RatingComponent } from './customcomp/hello-world.component/rating.component';
+      config.exports.push(RatingComponent);
+      config.declarations.push(RatingComponent);
+   </code>
+%>
+<custom-rating
+        [rating]="$config.components.<%-id%>.value"
+        [color]="$config.components.<%-id%>.color"
+        [icon]="$config.components.<%-id%>.icon"
+        [spacing]="$config.components.<%-id%>.spacing"
+        [height]="$config.components.<%-id%>.height"
+>
+</custom-rating>

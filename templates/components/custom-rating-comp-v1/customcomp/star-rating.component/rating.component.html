@@ -1,0 +1,8 @@
+<span *ngIf="debugComp">Rating parameters: {{rating}} {{icon}} {{color}} {{spacing}} {{height}}</span>
+<span>
+    <i [ngStyle]="{'color': color, 'margin-right': spacing, 'font-size': height }"
+       [class]="icon"
+       *ngFor="let x of loopCounter">
+    </i>
+</span>
+

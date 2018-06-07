@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "id": "custom-rating-comp",
+  "name": "custom-rating-comp",
+  "description": "custom rating component",
+  "type": "object",
+  "category": "Custom",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "../definitions/valid-component-id.json"
+        },
+        {
+          "type": "string",
+          "title": "Id",
+          "description": "The Id of the component",
+          "default": "",
+          "minLength": 1
+        }
+      ],
+      "order": 1
+    },
+    "icon": {
+      "type": "string",
+      "title": "Icon",
+      "editorType": "icon",
+      "editorRowType": "window",
+      "default": "fa fa-star",
+      "order": 2
+    },
+    "color": {
+      "type": "string",
+      "title": "Icon Color",
+      "description": "Icon color",
+      "editorType": "color",
+      "default": "blue",
+      "order": 3
+    },
+    "spacing": {
+      "type": "integer",
+      "title": "Space between icons(px)",
+      "minimum": 0,
+      "description": "Space between icons",
+      "default": 3,
+      "order": 4
+    },
+    "height": {
+      "type": "integer",
+      "title": "Icons Size (px)",
+      "minimum": 7,
+      "description": "how high and wide icons will be",
+      "default": 12,
+      "order": 5
+    },
+    "value": {
+      "type": "integer",
+      "title": "Value",
+      "minimum": 1,
+      "maximum": 6,
+      "description": "Number of times we repeat the icon",
+      "default": 3,
+      "order": 6
+    }
+  },
+  "required": [
+    "id"
+  ]
+}
