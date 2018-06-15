@@ -8,3 +8,4 @@ See these blogs for details:
  * [Augmenting models](https://goo.gl/T4komk) and see sample [sample custom-hello-world-v3](https://github.com/thierryciot/kendoui-builder-template-samples/tree/master/templates/views/custom-hello-world-v3)
  * [Introduction to KendoUI Builder Custom Component](https://goo.gl/S7fdVx) and see sample [custom-hello-world-comp](https://github.com/thierryciot/kendoui-builder-template-samples/tree/master/templates/components/custom-hello-world-comp)
  * [Custom Component from Angular Component](https://goo.gl/6aAh8r) and see sample [custom-hello-world-ang-comp](https://github.com/thierryciot/kendoui-builder-template-samples/tree/master/templates/components/custom-hello-world-ang-comp)
+ * [Rating component (star rating, dollar rating, ect...)](https://goo.gl/FDVrE9) and see sample [custom-rating-comp-v1](https://github.com/thierryciot/kendoui-builder-template-samples/tree/master/templates/components/custom-rating-comp-v1)
