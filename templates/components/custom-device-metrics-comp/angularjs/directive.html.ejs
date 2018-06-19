@@ -1,0 +1,27 @@
+<%#
+Example CSS definitions to put in view styles:
+
+.deviceMetric{
+    font-size: 120%;
+    margin: 1rem;
+}
+
+.deviceMetricLabel {
+    font-weight: normal;
+}
+
+.deviceMetricSeparator:before {
+    content: ":";
+    margin-right: 0.6rem;
+}
+
+.deviceMetricValue {
+    font-weight: bold;
+}
+%>
+<div class="deviceMetric">
+    <!--Debug output - model defined as: <%- model %><br/>-->
+    <span class="deviceMetricLabel">{{vm.$components.<%-id%>.metric}}</span>
+    <span class="deviceMetricSeparator"></span>
+    <span class="deviceMetricValue">{{vm.$viewModels.<%-model%>}}</span>
+</div>
