@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "id": "custom-device-multiple-metrics-comp",
+  "name": "custom-device-multiple-metrics-comp",
+  "description": "Component showing some metrics from an IoT device",
+  "type": "object",
+  "category": "Custom",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "../definitions/valid-component-id.json"
+        },
+        {
+          "type": "string",
+          "title": "Id",
+          "description": "The Id of the component",
+          "default": "",
+          "minLength": 1
+        }
+      ],
+      "order": 1
+    },
+    "metric": {
+      "type": "string",
+      "title": "All Metrics Label",
+      "description": "Label for all device reported metrics",
+      "default": "All Metrics",
+      "order": 2
+    },
+    "valuePrimitive": {
+      "type": "boolean",
+      "default": false,
+      "hidden": true,
+      "order": 3
+    },
+    "dataSourceName": {
+      "type": "string",
+      "default": "",
+      "hidden": true,
+      "order": 4
+    },
+    "model": {
+      "type": "string",
+      "title": "Model",
+      "default": "",
+      "editorType": "modelName",
+      "order": 5
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

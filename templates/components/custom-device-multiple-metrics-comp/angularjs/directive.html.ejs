@@ -1,0 +1,17 @@
+<%#
+Here the key thing is component is declared with valuePrimitive=false (in component definition file)
+As consequence the entire model is available to component (model is defined at view level)
+%>
+<div>
+    {{vm.$components.<%-id%>.metric}}:
+    <ul style="padding-left: 1.5rem;">
+        <%#
+        $viewModels is defined at the view level - see generated code in app\src\modules\custom-components\room-metrics\controller.js
+        %>
+        <li style="margin-top: 0.6rem;">Current Temperature: {{vm.$viewModels.<%-model%>.currentTemp}}</li>
+        <li style="margin-top: 0.6rem;">Set Temperature: {{vm.$viewModels.<%-model%>.setTemp}}</li>
+        <li style="margin-top: 0.6rem;">Humidity: {{vm.$viewModels.<%-model%>.hum}}</li>
+        <li style="margin-top: 0.6rem;">CO2: {{vm.$viewModels.<%-model%>.co2}}</li>
+        <li style="margin-top: 0.6rem;">VOC: {{vm.$viewModels.<%-model%>.voc}}</li>
+    </ul>
+</div>
