@@ -1,0 +1,47 @@
+'use strict';
+
+class BaseController {
+    constructor($scope, $injector) {
+        this.$scope = $scope;
+        this.$dataProviderService = $injector.get('providerService');
+        this.$dsService = $injector.get('dsService');
+
+        // Add view properties to the model
+        this.$model = <%- options %>;
+        //debugger;
+ }
+
+    $onInit() {
+        this.$scope.$on('$includeContentLoaded', () => {
+            if (this.includeContentLoaded) {
+                this.includeContentLoaded();
+            }
+        });
+
+        this.$scope.$on('$viewContentLoaded', (e) => {
+            if (this['<%= events.showEventHandler %>']) {
+                this['<%= events.showEventHandler %>'](e.currentScope);
+            }
+        });
+
+        this.$scope.$on('$includeContentError', (e) => {
+            if (this.includeContentError) {
+                this.includeContentError();
+            }
+        });
+
+        this.$scope.$on('$destroy', this._$destroy.bind(this));
+    }
+
+    _$errorHandler(e) {
+        const message = this.$dsService.extractErrorMessage(e);
+
+        this.$scope.$emit('notification', { type: 'error', message: message});
+    }
+
+    _$destroy() {
+        //this.$ds.unbind('error', this._$errorHandler);
+    }
+}
+
+export default BaseController

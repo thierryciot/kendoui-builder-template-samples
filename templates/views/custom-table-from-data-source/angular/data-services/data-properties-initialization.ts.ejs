@@ -1,0 +1,18 @@
+<%_ _.forEach(_.uniq(_.values(viewDataSources), item => item.classifiedServiceFactory), viewDataSource => { -%>
+this.$<%- viewDataSource.camelCasedServiceFactory %> = this.injector.get(<%- viewDataSource.classifiedServiceFactory %>);
+<%_ }); -%>
+this.$dataServices = {
+    <%_ Object.keys(viewDataSources).forEach((key, index, arr) => { -%>
+    '<%- key %>': this.$<%- viewDataSources[key].camelCasedServiceFactory %>.getService<<%- viewDataSources[key].classifiedProviderName %><%- viewDataSources[key].classifiedDSName %>>(get<%- viewDataSources[key].classifiedDSName %>Config(), this.$dataServicesState['<%- key %>'])<% if (index !== arr.length - 1) { %>,<% } %>
+    <%_ }); -%>
+};
+this.$dataServicesData = {
+<%_ Object.keys(viewDataSources).forEach((key, index, arr) => { -%>
+    '<%- key %>': this.getDataChanges('<%- key %>')<% if (index !== arr.length - 1) { %>,<% } %>
+<%_ }); -%>
+};
+this.$dataServicesResult = {
+<%_ Object.keys(viewDataSources).forEach((key, index, arr) => { -%>
+    '<%- key %>': this.getDataResult('<%- key %>')<% if (index !== arr.length - 1) { %>,<% } %>
+<%_ }); -%>
+};

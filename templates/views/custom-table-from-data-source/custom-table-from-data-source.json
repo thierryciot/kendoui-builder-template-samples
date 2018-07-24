@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "custom-table-from-data-source",
+  "type": "object",
+  "name": "custom-table-from-data-source",
+  "description": "Learning sample: how to use KUIB data source service illustrated by rendering set of metrics in table from REST server",
+  "category": "Views",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "View Title",
+      "description": "The title of the view",
+      "default": "Metrics",
+      "order": 1
+    },
+    "dataProvider": {
+      "type": "string",
+      "editorType": "dataProvider",
+      "title": "Data Provider",
+      "description": "The name of the data provider from which we get datasource definition",
+      "default": "",
+      "minLength": 1,
+      "order": 2
+    },
+    "dataSource": {
+      "type": "string",
+      "editorType": "dataSource",
+      "title": "Data Source",
+      "description": "The name of the data source from which we get data",
+      "default": "",
+      "minLength": 1,
+      "order": 3
+    }
+  },
+  "required": [
+    "dataProvider",
+    "dataSource"
+  ],
+  "dependencies": {
+    "dataSource": [
+      "dataProvider"
+    ]
+  }
+}

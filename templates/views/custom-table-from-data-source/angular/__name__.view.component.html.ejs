@@ -1,0 +1,31 @@
+<%#
+2 steps process:
+1) We render the headers by iterating through the variable myDataSrcFields and outputing a table cell for each field.
+2) For all items received from the server, we output a table row.
+Within the row, we simply output the value for each of the REST field.
+%>
+<h2>{{title}}</h2>
+
+<div style="margin-bottom: 1.5rem;">
+    <table>
+        <tr style="background-color: #3fd5d5; font-weight: bold; ">
+            <% view.myDataSrcFields.forEach(field => { %>
+            <td style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                <!-- <%- field.name %> -->
+                <span style="margin-left: 0.8rem; margin-right: 0.8rem;">
+                    <%- field.label %>
+                </span>
+            </td>
+            <% })%>
+        </tr>
+        <tr *ngFor="let item of myRestList" style="background-color: #ddd;">
+            <% view.myDataSrcFields.forEach(field => { %>
+            <td align="right">
+                <span style="margin-right: 0.8rem;">
+                    {{item['<%- field.name %>']}}
+                </span>
+            </td>
+            <% })%>
+        </tr>
+    </table>
+</div>

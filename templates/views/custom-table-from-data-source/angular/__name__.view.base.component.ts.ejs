@@ -1,0 +1,73 @@
+<%# See generators/angular/generators/view/views/data-grid/__name__.base.component.ts.ejs for example %>
+import { Component, Injector, ViewChild, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+
+import { State } from '@progress/kendo-data-query';
+
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
+import { KbGridComponent } from '../../../shared/components/grid/grid.component';
+import { ModelDataResult } from '../../../core/data/model-data-result';
+
+import { DataService } from '../../../core/data/data.service';
+import { DataServiceFactory } from '../../../core/data/data-service-factory';
+<%- include('./data-services/data-services-imports.ts.ejs', { viewDataSources: view.viewDataSources }); -%>
+
+@Component({
+    <% if (useTemplateUrl) { %>templateUrl: './<%- dasherizedViewName %>.view.component.html'<% } else { %>template: require('./<%- dasherizedViewName %>.view.component.html')<% } %>,
+    styleUrls: ['./<%- dasherizedViewName %>.view.component.css']
+})
+export class <%- classifiedViewName %>ViewBaseComponent implements OnInit, AfterViewInit, OnDestroy {
+
+    public title: string = '<%- view.title %>';
+
+    // Array where we will store the data coming back from server.
+    public myRestList: Array<any> = [];
+
+    // List of fields generated from metadata, if you want to use with ngFor
+    public myRestFields = [
+        <% view.myDataSrcFields.forEach(item => { %>
+            '<%- item.label %>',
+        <% })%>
+    ];
+
+
+<%- include('./data-services/data-properties-definitions.ts.ejs', { viewDataSources: view.viewDataSources }); -%>
+
+    public $config: any = <%- viewConfig %>;
+
+    // For accessing real data from REST service:
+    // Option 1: do everything by hand using Angular Http client service => need to create the url , ect... and then use Angular component/view binding (see standard angular tutorial)
+    // Option 2: to use KUIB data service. This is what we are demoing here.
+
+    constructor(public injector: Injector) {
+        <%- include('./data-services/data-properties-initialization.ts.ejs', { viewDataSources: view.viewDataSources }); -%>
+    }
+
+    <%- include('./data-services/data-functions.ts.ejs'); -%>
+
+    public ngOnInit(): void {
+        <%# We get data source name from metadata -> the name selected in property %>
+        //debugger;
+        const dataSourceName = '<%- view.dataSource %>';
+        const dataService = this.$dataServices[dataSourceName];
+
+    <%# use the KUIB builtin data service %>
+        const results: Observable<any> = dataService.dataChanges();
+            results.map(response => {
+                //debugger;
+                return response ? response.data : [];
+            }).subscribe(data => this.myRestList = data);
+
+
+        dataService.read();
+    }
+
+    public ngAfterViewInit(): void {
+    }
+
+    public ngOnDestroy(): void {
+    }
+}

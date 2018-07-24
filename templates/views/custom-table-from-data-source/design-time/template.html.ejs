@@ -1,0 +1,63 @@
+<%#
+Output the fields from selected data source and output some sample data as we do not connect to the REST service at design time.
+%>
+<div style="margin: 2rem;">
+    <h2><%- title %></h2>
+
+    <table>
+        <tr style="background-color: #3fd5d5; font-weight: bold; ">
+            <% myDataSrcFields.forEach(field => { %>
+            <td style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                <span style="margin-left: 0.8rem; margin-right: 0.8rem;">
+                    <%- field.label %>
+                </span>
+            </td>
+            <% })%>
+        </tr>
+        <% mySampleData.forEach(sampleItem => { %>
+        <tr>
+            <% myDataSrcFields.forEach(field => { %>
+            <td style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                <span style="margin-left: 0.8rem; margin-right: 0.8rem;">
+                    <%- sampleItem[field.name] %>
+                    <%#- field.name %>
+                </span>
+            </td>
+            <% })%>
+        </tr>
+        <% })%>
+    </table>
+</div>
+
+<% if ( outputDebugData ) { %>
+<div style="margin: 2rem; padding: 1.5rem; border: solid 1px olivedrab; width: 900px;">
+    <h4>Debug Output</h4>
+    <div style="padding: 1.5rem;">
+        <% if ( dataProvider ) { %>
+            Data Provider: <%- dataProvider %>
+        <% } else { %>
+            No Data Provider Selected
+        <% } %>
+        <br/>
+
+        <% if ( dataSource ) { %>
+            Data Source: <%- dataSource %>
+        <% } else { %>
+            No Data Source Selected
+        <% } %>
+        <br/>
+
+        Current directory: <%- dirName %>
+        <br/>
+
+        Directory with data provider metadata: <%- pathToDataProviderFile %>
+        <br/>
+
+        Number of fields from REST: <%- myDataSrcFields.length %>
+        <br/>
+
+        Number of sample data items: <%- mySampleData.length %>
+        <br/>
+    </div>
+</div>
+<% } %>

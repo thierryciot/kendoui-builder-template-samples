@@ -1,0 +1,13 @@
+public read(dataSourceName): void {
+        this.$dataServices[dataSourceName].read();
+    }
+
+public getDataChanges(dataSourceName): Observable<any[]> {
+    const dataService = this.$dataServices[dataSourceName];
+    return dataService.dataChanges()
+        .map(response => response ? response.data : []);
+}
+
+public getDataResult(dataSourceName): BehaviorSubject<ModelDataResult<any>> {
+    return this.$dataServices[dataSourceName].dataChanges();
+}

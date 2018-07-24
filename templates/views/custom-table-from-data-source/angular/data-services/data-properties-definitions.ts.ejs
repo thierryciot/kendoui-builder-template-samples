@@ -1,0 +1,19 @@
+<%_ _.forEach(_.uniq(_.values(viewDataSources), item => item.classifiedServiceFactory), viewDataSource => { -%>
+public $<%- viewDataSource.camelCasedServiceFactory %>: <%- viewDataSource.classifiedServiceFactory %>;
+<%_ }); -%>
+public $dataServices: { [key: string]: DataService<any> };
+public $dataServicesData: { [key: string]: Observable<any> };
+public $dataServicesResult: { [key: string]: BehaviorSubject<ModelDataResult<any>> };
+
+public $dataServicesModel: { [key: string]: any } = {
+    <%_ Object.keys(viewDataSources).forEach((key, index, arr) => { -%>
+    '<%- key %>': {
+        'createModel': () => new <%- viewDataSources[key].classifiedProviderName %><%- viewDataSources[key].classifiedDSName %>()
+    }<% if (index !== arr.length - 1) { %>,<% } %>
+    <%_ }); -%>
+};
+public $dataServicesState: { [key: string]: State } = {
+    <%_ Object.keys(viewDataSources).forEach((key, index, arr) => { -%>
+    '<%- key %>': <%- pretty(viewDataSources[key].state) %><% if (index !== arr.length - 1) { %>,<% } -%>
+    <%_ }); -%>
+};
