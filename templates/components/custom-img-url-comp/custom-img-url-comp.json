@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "id": "custom-img-url-comp",
+  "name": "custom-img-url-comp",
+  "description": "Component showing an image from a URL",
+  "type": "object",
+  "category": "Custom",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "../definitions/valid-component-id.json"
+        },
+        {
+          "type": "string",
+          "title": "Id",
+          "description": "The Id of the component",
+          "default": "",
+          "minLength": 1
+        }
+      ],
+      "order": 1
+    },
+    "title": {
+      "type": "string",
+      "title": "Image Title",
+      "description": "Image title",
+      "default": "",
+      "order": 2
+    },
+    "valuePrimitive": {
+      "type": "boolean",
+      "default": true,
+      "hidden": true,
+      "order": 3
+    },
+    "model": {
+      "type": "string",
+      "title": "Model",
+      "default": "",
+      "editorType": "modelName",
+      "order": 4
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

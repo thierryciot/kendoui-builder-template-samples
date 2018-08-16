@@ -1,0 +1,20 @@
+<%#
+<p>
+   To get this sample working you need to do the following:
+   <ul>
+   <li>
+      Put the angular component somewhere in the target application, for example create
+      customcomp directory under \app\src\app\shared and copy the source code there.
+   </li>
+   <li>add the following code to app\src\app\shared\shared.module.ts
+   <code>
+      import { ImgUrlComponent } from './customcomp/img-url.component/img-url.component';
+      config.exports.push(ImgUrlComponent);
+      config.declarations.push(ImgUrlComponent);
+   </code>
+%>
+<custom-img-url
+    [url]="$dataModels.<%- model %>"
+    [title]="$config.components.<%-id%>.title"
+    [id]="$config.components.<%-id%>"
+></custom-img-url>
