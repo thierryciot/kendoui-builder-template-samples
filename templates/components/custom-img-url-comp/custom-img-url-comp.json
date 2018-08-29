@@ -40,6 +40,34 @@
       "default": "",
       "editorType": "modelName",
       "order": 4
+    },
+    "marginTop": {
+      "type": "integer",
+      "title": "Margin Top (px)",
+      "minimum": 0,
+      "default": 3,
+      "order": 5
+    },
+    "marginBottom": {
+      "type": "integer",
+      "title": "Margin Bottom (px)",
+      "minimum": 0,
+      "default": 3,
+      "order": 6
+    },
+    "marginLeft": {
+      "type": "integer",
+      "title": "Margin Left (px)",
+      "minimum": 0,
+      "default": 3,
+      "order": 7
+    },
+    "marginRight": {
+      "type": "integer",
+      "title": "Margin Right (px)",
+      "minimum": 0,
+      "default": 3,
+      "order": 8
     }
   },
   "required": [

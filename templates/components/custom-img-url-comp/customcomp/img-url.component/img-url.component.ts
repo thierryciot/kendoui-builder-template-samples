@@ -10,6 +10,10 @@ export class ImgUrlComponent implements OnInit {
   @Input() url: string;
   @Input() title: string;
   @Input() id: string;
+  @Input() marginBottom: string;
+  @Input() marginTop: string;
+  @Input() marginLeft: string;
+  @Input() marginRight: string;
   // debugger;
 
   constructor() {
@@ -27,7 +31,13 @@ export class ImgUrlComponent implements OnInit {
     if ( this.id === undefined ) {
       throw "Id is required";
     }
-    console.log(`Img Url: $this.url`);
-    console.log(`title: $this.title`);
+
+    this.marginTop += 'px';
+    this.marginBottom += 'px';
+    this.marginRight += 'px';
+    this.marginLeft += 'px';
+
+    // console.log(`Img Url: $this.url`);
+    // console.log(`title: $this.title`);
   }
 }
