@@ -1,0 +1,31 @@
+<%#
+<p>
+   To get this sample working you need to do the following:
+   <ul>
+   <li>
+      Put the angular component somewhere in the target application, for example create
+      customcomp directory under \app\src\app\shared and copy the source code there.
+   </li>
+   <li>add the following code to app\src\app\shared\shared.module.ts
+   <code>
+      import { RatingComponentV2 } from './customcomp/star-rating.componentV2/rating.component';
+      config.exports.push(RatingComponentV2);
+      config.declarations.push(RatingComponentV2);
+   </code>
+%>
+<custom-ratingV2
+<% if ( fixedValue ) { %>
+    [rating]="$config.components.<%-id%>.value"
+<% } else { %>
+    [rating]="$dataModels.<%- model %>"
+<% } %>
+    [color]="$config.components.<%-id%>.color"
+    [icon]="$config.components.<%-id%>.icon"
+    [spacing]="$config.components.<%-id%>.spacing"
+    [height]="$config.components.<%-id%>.height"
+    [alignment]="$config.components.<%-id%>.alignment"
+    [marginTop]="$config.components.<%-id%>.marginTop"
+    [marginBottom]="$config.components.<%-id%>.marginBottom"
+    [showRange]="$config.components.<%-id%>.showRange"
+>
+</custom-ratingV2>

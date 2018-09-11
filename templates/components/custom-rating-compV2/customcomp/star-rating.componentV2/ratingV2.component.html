@@ -1,0 +1,11 @@
+<span *ngIf="debugComp">RatingV2 parameters: {{rating}} {{icon}} {{color}} {{spacing}} {{height}} {{alignment}} {{marginTop}} {{marginBottom}} {{isShowingRange}}</span>
+<div class="kbc-rating-container" [ngStyle]="{'font-size': height, 'text-align': alignment, 'margin-bottom': marginBottom, 'margin-top': marginTop }">
+    <i [ngStyle]="{'color': color, 'margin-right': spacing}"
+       [class]="icon"
+       *ngFor="let x of loopCounter">
+    </i><i [ngStyle]="{'color': 'lightgrey', 'margin-right': spacing}"
+       [class]="icon"
+       *ngFor="let y of remainingLoopCounter">
+    </i>
+</div>
+

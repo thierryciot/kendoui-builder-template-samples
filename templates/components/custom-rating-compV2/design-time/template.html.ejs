@@ -1,0 +1,26 @@
+<div style="width: 100%;margin-top: <%-marginTop%>px; margin-bottom: <%-marginBottom%>px; text-align: <%-alignment%>; ">
+<%
+var ratingValue;
+if ( fixedValue ) {
+    try {
+        ratingValue = value;
+    } catch(e) {
+        ratingValue = 6;
+    }
+}
+else {
+    ratingValue = 3;
+}
+
+var remaining = 5 - ratingValue;
+%>
+
+<% for (i=0; i<ratingValue; i++) { %>
+    <i style="margin-right: <%- spacing %>px; color: <%- color %>; font-size: <%- height %>px;" class="<%- icon %>"></i>
+<% } %>
+<% if (showRange) { %>
+    <% for (i=0; i<remaining; i++) { %>
+        <i style="margin-right: <%- spacing %>px; color: lightgrey; font-size: <%- height %>px;" class="<%- icon %>"></i>
+    <% } %>
+<% } %>
+</div>
