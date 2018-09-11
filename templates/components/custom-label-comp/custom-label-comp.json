@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "id": "custom-label-comp",
+  "name": "custom-label-comp",
+  "description": "Component showing a label from model",
+  "type": "object",
+  "category": "Custom",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "../definitions/valid-component-id.json"
+        },
+        {
+          "type": "string",
+          "title": "Id",
+          "description": "The Id of the component",
+          "default": "",
+          "minLength": 1
+        }
+      ],
+      "order": 1
+    },
+    "valuePrimitive": {
+      "type": "boolean",
+      "default": true,
+      "hidden": true,
+      "order": 2
+    },
+    "model": {
+      "type": "string",
+      "title": "Model",
+      "default": "",
+      "editorType": "modelName",
+      "order": 3
+    },
+    "alignment": {
+      "type": "string",
+      "title": "Text Alignment",
+      "default": "Start",
+      "enum": [
+        "Start",
+        "Center",
+        "End"
+      ],
+      "order": 4
+    },
+    "fontSize": {
+      "type": "integer",
+      "title": "Font Size (px)",
+      "minimum": 7,
+      "default": 12,
+      "order": 5
+    },
+    "marginTop": {
+      "type": "integer",
+      "title": "Margin Top (px)",
+      "minimum": 0,
+      "default": 3,
+      "order": 6
+    },
+    "marginBottom": {
+      "type": "integer",
+      "title": "Margin Bottom (px)",
+      "minimum": 0,
+      "default": 3,
+      "order": 6
+    }
+  },
+  "required": [
+    "id",
+    "model"
+  ]
+}
