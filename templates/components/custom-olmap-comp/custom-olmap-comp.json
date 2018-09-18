@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "id": "custom-olmap-comp",
+  "name": "custom-olmap-comp",
+  "description": "custom map component",
+  "type": "object",
+  "category": "Custom",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "../definitions/valid-component-id.json"
+        },
+        {
+          "type": "string",
+          "title": "Id",
+          "description": "The Id of the component",
+          "default": "",
+          "minLength": 1
+        }
+      ],
+      "order": 1
+    },
+    "valuePrimitive": {
+      "type": "boolean",
+      "default": false,
+      "hidden": true,
+      "order": 1
+    },
+    "dataSourceName": {
+      "type": "string",
+      "default": "",
+      "hidden": true,
+      "order": 2
+    },
+    "model": {
+      "type": "string",
+      "title": "Model",
+      "default": "",
+      "editorType": "modelName",
+      "order": 3
+    },
+    "height": {
+      "type": "integer",
+      "title": "Height (px)",
+      "description": "how high the map container will be",
+      "minimum": 300,
+      "default": 400,
+      "order": 4
+    },
+    "marginTop": {
+      "type": "integer",
+      "title": "Margin Top (px)",
+      "minimum": 0,
+      "default": 3,
+      "order": 5
+    },
+    "marginBottom": {
+      "type": "integer",
+      "title": "Margin Bottom (px)",
+      "minimum": 0,
+      "default": 3,
+      "order": 6
+    },
+    "marginLeft": {
+      "type": "integer",
+      "title": "Margin Left (px)",
+      "minimum": 0,
+      "default": 3,
+      "order": 7
+    },
+    "marginRight": {
+      "type": "integer",
+      "title": "Margin Right (px)",
+      "minimum": 0,
+      "default": 3,
+      "order": 8
+    }
+  },
+  "required": [
+    "id"
+  ]
+}
