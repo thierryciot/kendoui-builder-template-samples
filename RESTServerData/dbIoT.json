@@ -136,6 +136,68 @@
       "voc": 10
     }
   ],
+  "destinations": [
+    {
+      "id": 1,
+      "name": "Rome",
+      "lon": 12.4964,
+      "lat": 41.9028,
+      "rating": 5,
+      "price": 2500,
+      "img": "https://raw.githubusercontent.com/thierryciot/kendoui-builder-template-samples/master/Photos/Rome1.jpg"
+    , "desc": "Rome, Italy’s capital, is a sprawling, cosmopolitan city."
+    },
+    {
+      "id": 2,
+      "name": "Montreal",
+      "lon": -73.5673,
+      "lat": 45.5017,
+      "rating": 2,
+      "price": 1200,
+      "img": "https://raw.githubusercontent.com/thierryciot/kendoui-builder-template-samples/master/Photos/Montreal.jpg"
+    , "desc": "Montréal is the largest city in Canada's Québec province."
+    },
+    {
+      "id": 3,
+      "name": "Barbados",
+      "lon": -59.547,
+      "lat": 13.0706,
+      "rating": 3,
+      "price": 2100,
+      "img": "https://raw.githubusercontent.com/thierryciot/kendoui-builder-template-samples/master/Photos/Barbados.jpg"
+    , "desc": "Barbados is an eastern Caribbean island. "
+    },
+    {
+      "id": 4,
+      "name": "New York",
+      "lon": -74.006,
+      "lat": 40.7128,
+      "rating": 4,
+      "price": 1100,
+      "img": "https://raw.githubusercontent.com/thierryciot/kendoui-builder-template-samples/master/Photos/NewYork.jpg"
+    , "desc": "Description New York"
+    },
+    {
+      "id": 5,
+      "name": "Rincon",
+      "lon": -67.2499,
+      "lat": 18.3402,
+      "rating": 4,
+      "price": 1899,
+      "img": "https://raw.githubusercontent.com/thierryciot/kendoui-builder-template-samples/master/Photos/Rincon.jpg"
+    , "desc": "Description Rincon"
+    },
+    {
+      "id": 6,
+      "name": "Uyuni Salar",
+      "lon": -67.4891,
+      "lat": -20.1338,
+      "rating": 4,
+      "price": 3500,
+      "img": "https://raw.githubusercontent.com/thierryciot/kendoui-builder-template-samples/master/Photos/UyuniSalar.jpg"
+    , "desc": "Description Uyuni Salar"
+    }
+  ],
   "buildings": [
     {
       "id": 1,
