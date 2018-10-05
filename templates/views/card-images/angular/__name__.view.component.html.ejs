@@ -1,0 +1,131 @@
+<%#
+%>
+<h2>{{title}}</h2>
+
+<style>
+    .cardContainer {
+        width: 100%;
+        /*max-width: 1240px;*/
+        /*margin: 0 auto;*/
+        /*margin-left: 5%;*/
+        /*margin-right: 5%;*/
+        text-align: <%- view.cardsContainerStyling.alignment %>;
+    }
+
+    /*
+    Compared to display: inline, the major difference is that display: inline-block allows to set a width and height on the element.
+    Also, with display: inline-block, the top and bottom margins/paddings are respected, but with display: inline they are not.
+    Compared to display: block, the major difference is that display: inline-block does not add a line-break after the element, so the element can sit next to other elements.
+    */
+    .card-image {
+        display: inline-block;
+        text-align: <%- view.cardsStyling.alignment %>;
+        width: <%- view.cardsStyling.width %>px;
+        height: <%- view.cardsStyling.height %>px;
+        margin: <%- view.cardsStyling.margin %>px;
+        padding: <%- view.cardsStyling.padding %>px;
+        /*border: solid 2px black;*/
+        /*box-shadow: 0 2px 5px rgba(0,0,0,0.1);*/
+        <% if ( view.cardsStyling.fgColor ) { %>
+            color: <%- view.cardsStyling.fgColor %>;
+        <% } %>
+        <% if ( view.cardsStyling.bgColor ) { %>
+            background-color: <%- view.cardsStyling.bgColor %>;
+        <% } %>
+        <% if ( view.cardsStyling.addCss ) { %>
+            <%- view.cardsStyling.addCss %>
+        <% } %>
+    }
+
+    .fieldContainer {
+        margin-top: <%- view.fieldContainer.topMargin %>px;
+        margin-bottom: <%- view.fieldContainer.bottomMargin %>px;
+    }
+
+    .field1Container {
+        <%- view.cardsData.fieldsStyles.field1 %>
+    }
+    .field2Container {
+        <%- view.cardsData.fieldsStyles.field2 %>
+    }
+    .field3Container {
+        <%- view.cardsData.fieldsStyles.field3 %>
+    }
+    .field4Container {
+        <%- view.cardsData.fieldsStyles.field4 %>
+    }
+</style>
+
+
+<div class="cardContainer" dir="ltr">
+    <!-- grid item, containing a card -->
+    <div *ngFor="let item of myRestList" href="" class="card-image">
+        <% if ( !view.cardsData.cardName || view.cardsData.cardName === "" || view.cardsData.cardName === "Image and Name" ) { %>
+            <% if ( view.cardsData.fieldsMapping.field1 !== "" ) { %>
+                <div class="fieldContainer field1Container">
+                    <img class="fieldValue" width="100%" src="{{item['<%- view.cardsData.fieldsMapping.field1 %>']}}" />
+                </div>
+            <% } %>
+            <% if ( view.cardsData.fieldsMapping.field2 !== "" ) { %>
+            <div class="fieldContainer field2Container">
+                <% if ( view.cardsData.fieldsIcon.field2 ) { %>
+                    <i class="<%- view.cardsData.fieldsIcon.field2 %>"></i>
+                <% } %>
+                <span class="fieldValue">{{item['<%- view.cardsData.fieldsMapping.field2 %>']}}</span>
+            </div>
+            <% } %>
+        <% } else if ( view.cardsData.cardName === "Image, price and name" ) { %>
+            <% if ( view.cardsData.fieldsMapping.field1 ) { %>
+                <div class="fieldContainer field1Container">
+                    <img class="fieldValue" width="100%" src="{{item['<%- view.cardsData.fieldsMapping.field1 %>']}}" />
+                </div>
+            <% } %>
+            <table width="100%">
+                <tr>
+                    <td with="50%">
+                        <% if ( view.cardsData.fieldsMapping.field2 ) { %>
+                        <div class="fieldContainer field2Container">
+                            <% if ( view.cardsData.fieldsIcon.field2 ) { %>
+                                <i class="fa <%- view.cardsData.fieldsIcon.field2 %>"></i>
+                            <% } %>
+                            <span class="fieldValue">{{item['<%- view.cardsData.fieldsMapping.field2 %>']}}</span>
+                        </div>
+                        <% } %>
+                    </td>
+                    <td with="50%" align="right">
+                        <% if ( view.cardsData.fieldsMapping.field3 ) { %>
+                        <div class="fieldContainer field3Container">
+                            <% if ( view.cardsData.fieldsIcon.field3 ) { %>
+                                <i class="fa <%- view.cardsData.fieldsIcon.field3 %>"></i>
+                            <% } %>
+                            <span class="fieldValue">{{item['<%- view.cardsData.fieldsMapping.field3 %>']}}</span>
+                        </div>
+                        <% } %>
+                    </td>
+                </tr>
+            </table>
+        <% } else if ( view.cardsData.cardName === "Image, name and description" ) { %>
+            <% if ( view.cardsData.fieldsMapping.field1 !== "" ) { %>
+            <div class="fieldContainer field1Container">
+                <img class="fieldValue" width="100%" src="{{item['<%- view.cardsData.fieldsMapping.field1 %>']}}" />
+            </div>
+            <% } %>
+            <% if ( view.cardsData.fieldsMapping.field2 !== "" ) { %>
+            <div class="fieldContainer field2Container">
+                <% if ( view.cardsData.fieldsIcon.field2 ) { %>
+                    <i class="<%- view.cardsData.fieldsIcon.field2 %>"></i>
+                <% } %>
+                <span class="fieldValue">{{item['<%- view.cardsData.fieldsMapping.field2 %>']}}</span>
+            </div>
+            <% } %>
+            <% if ( view.cardsData.fieldsMapping.field4 !== "" ) { %>
+            <div class="fieldContainer field4Container">
+                <% if ( view.cardsData.fieldsIcon.field4 ) { %>
+                    <i class="<%- view.cardsData.fieldsIcon.field4 %>"></i>
+                <% } %>
+                <span class="fieldValue">{{item['<%- view.cardsData.fieldsMapping.field4 %>']}}</span>
+            </div>
+            <% } %>
+        <% } %>
+    </div>
+</div>

@@ -1,0 +1,290 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "card-images",
+  "type": "object",
+  "name": "card-images",
+  "description": "Rendering image and text in cards - data from REST server",
+  "category": "Views",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "View Title",
+      "description": "The title of the view",
+      "default": "List",
+      "order": 1
+    },
+    "dataProvider": {
+      "type": "string",
+      "editorType": "dataProvider",
+      "title": "Data Provider",
+      "description": "The name of the data provider from which we get datasource definition",
+      "default": "",
+      "minLength": 1,
+      "order": 2
+    },
+    "dataSource": {
+      "type": "string",
+      "editorType": "dataSource",
+      "title": "Data Source",
+      "description": "The name of the data source from which we get data",
+      "default": "",
+      "minLength": 1,
+      "order": 3
+    },
+    "cardsData": {
+      "type": "object",
+      "title": "Cards Data",
+      "description": "Specifies all available properties at container level",
+      "order": 4,
+      "properties": {
+        "cardName": {
+          "type": "string",
+          "title": "Card Type",
+          "description": "Card Name",
+          "enum": [
+            "Image and Name",
+            "Image, price and name",
+            "Image, name and description"
+          ],
+          "default": "Image and Name",
+          "order": 1
+        },
+        "fieldsMapping": {
+          "type": "object",
+          "title": "Card Fields Mapping",
+          "description": "Specifies mapping of each card field to a data source field",
+          "order": 2,
+          "properties": {
+          "field1": {
+            "type": "string",
+            "title": "Image URL",
+            "description": "Image URL Field mapping",
+            "order": 1
+          },
+          "field2": {
+            "type": "string",
+            "title": "Name",
+            "description": "Name Field mapping",
+            "order": 2
+          },
+          "field3": {
+            "type": "string",
+            "title": "Price",
+            "description": "Price Field mapping",
+            "order": 3
+          },
+          "field4": {
+            "type": "string",
+            "title": "Description",
+            "description": "Description Field mapping",
+            "order": 4
+          }
+        }
+        },
+        "fieldsIcon": {
+          "type": "object",
+          "title": "Fields Icon",
+          "description": "Show a field icon",
+          "order": 3,
+          "properties": {
+            "field2": {
+              "default": "",
+              "type": "string",
+              "title": "Name Icon",
+              "editorType": "icon",
+              "editorRowType": "window",
+              "order": 1
+            },
+            "field3": {
+              "default": "",
+              "type": "string",
+              "title": "Price Icon",
+              "editorType": "icon",
+              "editorRowType": "window",
+              "order": 2
+            },
+            "field4": {
+              "default": "",
+              "type": "string",
+              "title": "Description Icon",
+              "editorType": "icon",
+              "editorRowType": "window",
+              "order": 3
+            }
+          }
+        },
+        "fieldsStyles": {
+          "type": "object",
+          "title": "Fields Styles",
+          "description": "Field Styles",
+          "order": 5,
+          "properties": {
+            "field1": {
+              "type": "string",
+              "title": "Image CSS",
+              "description": "Any valid CSS ; separated",
+              "default": "",
+              "order": 1
+            },
+            "field2": {
+              "type": "string",
+              "title": "Name CSS",
+              "description": "Any valid CSS ; separated",
+              "default": "",
+              "order": 2
+            },
+            "field3": {
+              "type": "string",
+              "title": "Price CSS",
+              "description": "Any valid CSS ; separated",
+              "default": "",
+              "order": 3
+            },
+            "field4": {
+              "type": "string",
+              "title": "Description CSS",
+              "description": "Any valid CSS ; separated",
+              "default": "",
+              "order": 4
+            }
+          }
+        }
+      }
+    },
+    "fieldContainer": {
+      "type": "object",
+      "title": "Fields Container Styling",
+      "description": "Specifies all available properties for all fields",
+      "order": 5,
+      "properties": {
+        "topMargin": {
+          "type": "integer",
+          "title": "Top Margin",
+          "minimum": 0,
+          "description": "Top Margin",
+          "default": 10,
+          "order": 1
+        },
+        "bottomMargin": {
+          "type": "integer",
+          "title": "Bottom Margin",
+          "minimum": 0,
+          "description": "Bottom Margin",
+          "default": 10,
+          "order": 2
+        }
+      }
+    },
+    "cardsStyling": {
+      "type": "object",
+      "title": "Cards Styling",
+      "description": "Specifies all available properties at container level",
+      "order": 6,
+      "properties": {
+        "width": {
+          "type": "integer",
+          "title": "Width",
+          "minimum": 50,
+          "description": "Card Width",
+          "default": 200,
+          "order": 1
+        },
+        "height": {
+          "type": "integer",
+          "title": "Height",
+          "minimum": 20,
+          "description": "Card Height",
+          "default": 200,
+          "order": 2
+        },
+        "margin": {
+          "type": "integer",
+          "title": "Spacing between Cards",
+          "minimum": 0,
+          "description": "spacing between cards",
+          "default": 20,
+          "order": 3
+        },
+        "padding": {
+          "type": "integer",
+          "title": "Card Content Padding",
+          "minimum": 0,
+          "description": "Card Content Padding",
+          "default": 10,
+          "order": 4
+        },
+        "alignment": {
+          "type": "string",
+          "title": "Text Alignment",
+          "description": "How the card content aligns within the card",
+          "enum": [
+            "center",
+            "start",
+            "end"
+          ],
+          "default": "center",
+          "order": 5
+        },
+        "fgColor": {
+          "type": "string",
+          "title": "Color",
+          "description": "Card color",
+          "editorType": "color",
+          "default": "black",
+          "order": 6
+        },
+        "bgColor": {
+          "type": "string",
+          "title": "Background Color",
+          "description": "Card background color",
+          "editorType": "color",
+          "default": "white",
+          "order": 7
+        },
+        "addCss": {
+          "type": "string",
+          "title": "Additional CSS",
+          "description": "Any valid CSS ; separated",
+          "default": "",
+          "order": 8
+        }
+      }
+    },
+    "cardsContainerStyling": {
+      "type": "object",
+      "title": "Cards Container Styling",
+      "description": "Specifies all available properties at container level",
+      "order": 6,
+      "properties": {
+        "alignment": {
+          "type": "string",
+          "title": "Cards Alignment",
+          "description": "How the cards align within the container",
+          "enum": [
+            "center",
+            "start",
+            "end"
+          ],
+          "default": "center",
+          "order": 1
+        },
+        "addCss": {
+          "type": "string",
+          "title": "Additional CSS",
+          "description": "Any valid CSS ; separated",
+          "default": "",
+          "order": 2
+        }
+      }
+    }
+  },
+  "required": [
+    "dataProvider",
+    "dataSource"
+  ],
+  "dependencies": {
+    "dataSource": [
+      "dataProvider"
+    ]
+  }
+}

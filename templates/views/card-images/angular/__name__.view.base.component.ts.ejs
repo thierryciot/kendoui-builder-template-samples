@@ -1,0 +1,98 @@
+<%# See generators/angular/generators/view/views/data-grid/__name__.base.component.ts.ejs for example %>
+import { Component, Injector, ViewChild, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+
+import { State } from '@progress/kendo-data-query';
+
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
+import { KbGridComponent } from '../../../shared/components/grid/grid.component';
+import { ModelDataResult } from '../../../core/data/model-data-result';
+
+import { DataService } from '../../../core/data/data.service';
+import { DataServiceFactory } from '../../../core/data/data-service-factory';
+<%- include('./data-services/data-services-imports.ts.ejs', { viewDataSources: view.viewDataSources }); -%>
+
+@Component({
+    <% if (useTemplateUrl) { %>templateUrl: './<%- dasherizedViewName %>.view.component.html'<% } else { %>template: require('./<%- dasherizedViewName %>.view.component.html')<% } %>,
+    styleUrls: ['./<%- dasherizedViewName %>.view.component.css']
+})
+export class <%- classifiedViewName %>ViewBaseComponent implements OnInit, AfterViewInit, OnDestroy {
+
+    public field1 = '<%- view.field1 %>';
+    public field1Model = '<%- view.model1 %>';
+    public field2 = '<%- view.field2 %>';
+    public field3 = '<%- view.field3 %>';
+    public field4 = '<%- view.field4 %>';
+    public field5 = '<%- view.field5 %>';
+
+    public title: string = '<%- view.title %>';
+
+    // Define the html fragment for the card (from Html Editor) - we need to replace multi-line strings into a single line string
+    public html: string = "<%- view.html.replace(/"/g, '\\"').replace(/\r?\n|\r/gm, " ") %>";
+
+    // Array where we will store the data coming back from server.
+    public myRestList: Array<any> = [];
+
+    // List of fields generated from metadata, if you want to use with ngFor
+    public myRestFieldLabels = [
+        <% view.myDataSrcFields.forEach(item => { %>
+            '<%- item.label %>',
+        <% })%>
+    ];
+    public myRestFieldNames = [
+        <% view.myDataSrcFields.forEach(item => { %>
+            '<%- item.name %>',
+        <% })%>
+    ];
+
+
+<%- include('./data-services/data-properties-definitions.ts.ejs', { viewDataSources: view.viewDataSources }); -%>
+
+    public $config: any = <%- viewConfig %>;
+
+    // For accessing data from REST service: use KUIB data service.
+
+    constructor(public injector: Injector) {
+        <%- include('./data-services/data-properties-initialization.ts.ejs', { viewDataSources: view.viewDataSources }); -%>
+    }
+
+    <%- include('./data-services/data-functions.ts.ejs'); -%>
+
+    public ngOnInit(): void {
+        <%# We get data source name from metadata -> the name selected in property %>
+        //debugger;
+        const dataSourceName = '<%- view.dataSource %>';
+        const dataService = this.$dataServices[dataSourceName];
+
+        const results: Observable<any> = dataService.dataChanges();
+            results.map(response => {
+                //debugger;
+                return response ? response.data : [];
+            }).subscribe(data => this.myRestList = data);
+
+
+        <%# use the KUIB builtin data service %>
+/*        const results: Observable<any> = dataService.dataChanges()
+            .do( result => {
+                debugger;
+                console.log(`*** Result ${result}`)
+            })
+            .map(response => response ? response.data : []);
+
+        results.do( result => {
+            debugger;
+            console.log(`*** Result ${result}`)
+        });
+*/
+        dataService.read();
+    }
+
+    public ngAfterViewInit(): void {
+    }
+
+    public ngOnDestroy(): void {
+    }
+}
